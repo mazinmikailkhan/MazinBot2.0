@@ -39,7 +39,7 @@ function searchAnswer(txt){
         arr = [txt, ""];
     }
     let d = new Date();
-    let x = (d.getHours >= 12) ? "AM":"PM";
+    let x = (d.getHours >= 12) ? "PM":"AM";
     let hrs = d.getHours();
     if(x === "PM"){
         hrs -= 12;
