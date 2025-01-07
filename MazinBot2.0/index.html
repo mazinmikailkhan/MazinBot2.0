@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>MazinBot</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Mazin, MazinBot, bot, ai, chatbot, chat, bot, machine, learning">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="https://cdn.prod.website-files.com/6411daab15c8848a5e4e0153/6476e947d3fd3c906c9d4da6_4712109.png">
+        <link rel="stylesheet" href="mazinBot.css">
+        <script src="./general_functions.js"></script>
+    </head>
+    <body>
+        <header>
+            <section>
+                <h1>MazinBot</h1>
+                <p>Ask anything, like, what's the time?</p>
+            </section>
+            <!-- for future developments
+            <section>
+                <a href="train.html" class="btn">Train</a>
+            </section>
+        -->
+        </header>
+        <main>
+            <section id="chat_screen">
+                <!--all messages under this section-->
+                <!--
+                <div class="mymessage">
+                    <span class="message">Testing</span>
+                </div>
+                <div class="aimessage">
+                    <span class="message">Yes?</span>
+                </div>-->
+            </section>
+            <section>
+                <div id="chat_prompt_container">
+                    <div class="chat_prompt_holder">
+                        <textarea id="user_input" onfocus="chatPromptFocus('styler', false)" placeholder="Ask something!" onblur="chatPromptFocus('styler', true)" class="chat_prompt"></textarea>
+                        <div id="styler"></div>
+                    </div>
+                    <button onclick="send();" id="sender" class="btn">Send</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <h1>A Mazin Mikail Khan Production</h1>
+            <br>
+            <section>
+                <h2>Source of icon</h2>
+                <a href="https://cdn.prod.website-files.com/6411daab15c8848a5e4e0153/6476e947d3fd3c906c9d4da6_4712109.png" target="_blank">cdn.prod.website-files.com</a>
+            </section>
+            <br>
+            <section>
+                <h2>Developer contact</h2>
+                <ul>
+                    <li><a href="mailto:mazinmikailkhan@gmail.com">Email</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/mxzin.mkhan_">Instagram</a></li>
+                </ul>
+            </section>
+        </footer>
+        <script src="./ai_code/searching.js"></script>
+        <script src="./ai_code/ai_functions.js"></script>
+        <script>
+            function send(){
+                text = document.getElementById('user_input').value;
+                text = text.trim();
+                var question = text; //to save the question on the window object
+                console.log(text);
+                writeChat(text, document.getElementById('chat_screen'));
+                //console.log(text);
+                executeAI(text);
+                document.getElementById('user_input').value = '';
+                document.getElementById('chat_screen').scrollTop += (window.screen.height)/2;
+            }
+        </script>
+    </body>
+</html>
